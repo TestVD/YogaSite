@@ -86,4 +86,35 @@ function setClock(id, endtime) {
 }
 
 setClock('timer', deadline);
+
+// Modal
+
+let more = document.querySelector('.more'),
+    overlay = document.querySelector('.overlay'),
+    close = document.querySelector('.popup-close'),
+    descriptionBtn = document.querySelectorAll('.description-btn');
+
+function showModal() {
+    overlay.style.display = 'block';
+    more.classList.add('more-splash');
+    document.body.style.overflow = 'hidden';
+}
+
+more.addEventListener('click', function () {
+    showModal();
+});
+
+close.addEventListener('click', function () {
+    overlay.style.display = 'none';
+    more.classList.remove('more-splash');
+    document.body.style.overflow = '';
+});
+
+for (let i = 0; i < tabContent.length; i++) {
+    tabContent[i].addEventListener('click', function(event) {
+        if (event.target && event.target.classList.contains('description-btn')) {
+            showModal();
+        }
+    });
+}
 });
