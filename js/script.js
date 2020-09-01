@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', ()=>{
 'use strict';
 
 //tabs
@@ -23,7 +23,7 @@ function showTabContent(b) {
     }
 }
 
-info.addEventListener('click', function(event){
+info.addEventListener('click', (event)=>{
     let target = event.target;
     if (target && target.classList.contains('info-header-tab')){
         for (let i = 0; i < tab.length; i++) {
@@ -63,7 +63,6 @@ function setClock(id, endtime) {
 
     function updateClock(){
         let t = getTimeRemaining(endtime);
-
         function addZero(num) {
             if (num < 10) {
                 return '0'+ num;
@@ -100,21 +99,21 @@ function showModal() {
     document.body.style.overflow = 'hidden';
 }
 
-more.addEventListener('click', function () {
+more.addEventListener('click', ()=> {
     showModal();
 });
 
-close.addEventListener('click', function () {
+close.addEventListener('click', ()=> {
     overlay.style.display = 'none';
     more.classList.remove('more-splash');
     document.body.style.overflow = '';
 });
 
 for (let i = 0; i < tabContent.length; i++) {
-    tabContent[i].addEventListener('click', function(event) {
+    tabContent[i].addEventListener('click', (event)=> {
         if (event.target && event.target.classList.contains('description-btn')) {
             showModal();
-        }
+        } 
     });
 }
 });
