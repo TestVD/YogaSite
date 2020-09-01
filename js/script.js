@@ -5,21 +5,21 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
 let tab = document.querySelectorAll('.info-header-tab'),
     info = document.querySelector('.info-header'),
-    tabContent = document.querySelectorAll('.info-tabcontent');
+    tabContents = document.querySelectorAll('.info-tabcontent');
 
 function hideTabContent(a) {
-    for (let i = a; i < tabContent.length; i++) {
-        tabContent[i].classList.remove('show');
-        tabContent[i].classList.add('hide');
+    for (let tabContent of tabContents) {
+        tabContent.classList.remove('show');
+        tabContent.classList.add('hide');
     }
 }
 
 hideTabContent(1);
 
 function showTabContent(b) {
-    if (tabContent[b].classList.contains('hide')){
-        tabContent[b].classList.remove('hide');
-        tabContent[b].classList.add('show');
+    if (tabContents[b].classList.contains('hide')){
+        tabContents[b].classList.remove('hide');
+        tabContents[b].classList.add('show');
     }
 }
 
@@ -109,8 +109,8 @@ close.addEventListener('click', ()=> {
     document.body.style.overflow = '';
 });
 
-for (let i = 0; i < tabContent.length; i++) {
-    tabContent[i].addEventListener('click', (event)=> {
+for (let tabContent of tabContents) {
+    tabContent.addEventListener('click', (event)=> {
         if (event.target && event.target.classList.contains('description-btn')) {
             showModal();
         } 
